@@ -1,0 +1,87 @@
+#set global scrolloff 2,2
+set global BOM utf8
+set global tabstop 2
+set global indentwidth 2
+# hook global WinCreate .* %{addhl show_whitespaces}
+hook global WinCreate .* %{set global indentwidth 2}
+hook global WinCreate .* %{set global tabstop 2}
+hook global WinCreate .* %{set buffer autowrap_column 72}
+hook global WinCreate .* %{set autowrap-enable}
+hook global WinCreate .* %{addhl number_lines}
+hook global BufCreate (.*/)?(.*.vue) %{set buffer filetype html}
+hook global BufCreate (.*/)?(.*.svelte) %{set buffer filetype html}
+hook global BufCreate (.*/)?(.*.svg) %{set buffer filetype html}
+hook global BufCreate (.*/)?(.*.styl) %{set buffer filetype css}
+hook global BufCreate (.*/)?(.*.less) %{set buffer filetype css}
+hook global InsertChar \t %{
+  exec -draft -itersel h@
+}
+#hook -group TrailingWhitespaces global WinCreate .* %{
+  #addhl regex '\h+$' 0:default,red
+#}
+# def -hidden insert-bs %{
+#   try %{
+#     exec -draft -no-hooks h %opt{indentwidth}H <a-k>\A<space>+\Z<ret> d
+#   } catch %{
+#     exec <backspace>
+#   }
+# }
+#hook global NormalKey y|d|c %{ nop %sh{ (
+  #printf %s "$kak_reg_dquote" |
+    #xclip -in -selection primary -filter |
+    #xclip -in -selection clipboard
+  #) < /dev/null > /dev/null 2>&1 &
+#}}
+#
+map global normal <esc> '<space>'
+map global normal <ret> '<o>'
+map global normal <backspace> '<i>'
+map global normal <space> '<i>'
+map global normal <tab> '<gt><i>'
+#
+map global normal <c-n> ':buffer-next<ret>'
+map global normal <c-p> ':buffer-previous<ret>'
+map global normal <c-q> ':q<ret>'
+map global normal <f4> ':q<ret>'
+map global normal <c-w> ':db<ret>'
+map global normal <a-z> '<u>'
+map global normal <c-s> ':w<ret>'
+#
+map global normal <a-c>  '<a-|>xclip -selection clipboard -i<ret>'
+map global normal <a-x>  '<a-|>xclip -selection clipboard -i<ret><d>'
+map global normal <a-v> '<a-!>xclip -selection clipboard -o<ret>'
+map global normal <a-V> '<!>xclip -selection clipboard -o<ret>'
+map global normal <c-V> '<\><!>xclip -selection clipboard -o<ret>'
+#
+map global normal <^> ':go-format<ret>'
+map global normal <a-/> ':comment-line<ret>'
+map global normal <#> ':comment-block<ret>'
+map global normal <c-a> '<*>'
+map global normal <D> '<N>'
+map global normal <x> '<h><x>'
+map global normal <c-d> '<y><P>'
+map global normal <a-d> '<y><p>'
+#
+map global normal <.> '<E>'
+map global normal <,> '<B>'
+map global normal <pagedown> '<e><l><h>'
+map global normal <pageup> '<b><h><l>'
+map global normal <home> '<g><i>'
+map global normal <end> '<g><l>'
+map global normal <q> '10<up>'
+map global normal <z> '10<down>'
+map global normal <a> '<c-a><esc>'
+#
+map global insert <pagedown> '<a-;><e><a-;><l><a-;><h>'
+map global insert <pageup> '<a-;><b><a-;><l><a-;><h>'
+#
+map global insert <c-s> '<esc>:w<ret>'
+map global insert <a-z> '<esc><u>'
+#
+map global insert <tab> '<c-n>'
+#map global insert <backtab> '<a-;><gt>'
+# map global insert <backspace> '<a-;>:insert-bs<ret>'
+#source "%val{config}/plugins/plug.kak/rc/plug.kak"
+#plug "andreyorst/smarttab.kak" %{
+#  set-option global softtabstop 2 # or other preferred value
+#}

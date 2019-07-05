@@ -1,0 +1,42 @@
+Xft.autohint:  0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting:   1
+Xft.antialias: 1
+Xft.dpi:       96
+Xft.rgba:      rgb
+URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=14:Regular
+URxvt.boldFont: xft:Bitstream Vera Sans Mono:pixelsize=14:Bold
+URxvt.italicFont: xft:Bitstream Vera Sans Mono:pixelsize=14:Italic
+URxvt.boldItalicFont: xft:Bitstream Vera Sans Mono:pixelsize=14:Bold:Italic
+URxvt.letterSpace: -1
+URxvt*.scrollBar: false
+URxvt*.alt-font-width: true
+URxvt*.lineSpace: 0
+URxvt*.allow_bold: false
+URxvt*.iso14755: False
+! Xft.hintstyle: hintslight
+URxvt.perl-ext-common: default,clipboard
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.termName: rxvt-256color
+URxvt.iso14755: false
+URxvt*background:   #1e1f28
+URxvt*foreground:   #ebece6
+URxvt*cursorColor:   #e4e4e4
+URxvt*color0:   #000
+URxvt*color1:   #fb4245
+URxvt*color2:   #50fa7b
+URxvt*color3:   #f0fa8b
+URxvt*color4:   #49b9fe
+URxvt*color5:   #fb4cb3
+URxvt*color6:   #8be9fd
+URxvt*color7:   #ededec
+URxvt*color8:   #555555
+URxvt*color9:   #fb4245
+URxvt*color10:   #50fa7b
+URxvt*color11:   #f0fa8b
+URxvt*color12:   #49b9fe
+URxvt*color13:   #fb4cb3
+URxvt*color14:   #8be9fd
+URxvt*color15:   #ededec

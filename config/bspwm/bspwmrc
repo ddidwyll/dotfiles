@@ -1,0 +1,42 @@
+#! /bin/sh
+#bspc monitor -d firefox terms other
+bspc monitor -d www code games chat music etc
+bspc config super mod4
+bspc config click_to_focus true
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc desktop ^1 -l monocle
+bspc desktop ^2 -l monocle
+bspc desktop ^3 -l monocle
+bspc desktop ^4 -l monocle
+bspc desktop ^5 -l monocle
+bspc desktop ^6 -l monocle
+bspc config split_ratio 0.52
+bspc config border_width        0
+bspc config window_gap          2
+
+bspc rule -a Gimp desktop=^6 state=floating follow=on
+bspc rule -a Firefox desktop=^1
+bspc rule -a Chromium  desktop=^1
+bspc rule -a Chromium  state=fullscreen
+bspc rule -a mpv desktop=^5
+bspc rule -a mpv state=floating
+bspc rule -a TelegramDesktop desktop=^4
+#bspc rule -a Subl desktop=^4
+#bspc rule -a Spotify desktop=^5
+#bspc rule -a Lmms desktop=^5
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Gedit state=floating
+#bspc rule -a Eog state=floating
+#bspc rule -a Nautilus state=floating
+#bspc rule -a File-roller state=floating
+#bspc rule -a Gnome-system-monitor state=floating
+
+sxhkd &
+feh  --bg-fill ~/Desktop/wallup-20474.jpg
+# feh  --bg-fill ~/Desktop/552814.jpg
+#bgchd -dir ~/Desktop/fav -intv 5m -bcknd feh -rpl
+rm $HOME/nohup.out
+$HOME/.config/polybar/start.sh
+compton
