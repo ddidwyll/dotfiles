@@ -59,7 +59,7 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  #git
+  git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -78,12 +78,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-alias mpv='mpv --shuffle --no-audio-display'
-
-kak -d -s kak 1>/dev/null 2>/dev/null
-alias vi='kak -c kak'
-export EDITOR='vi'
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -98,7 +92,3 @@ export EDITOR='vi'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# Autologin
-if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-	startx
-fi

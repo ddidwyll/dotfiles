@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill '/home/one/Desktop/wallup-20474.jpg' 
+/run/current-system/sw/bin/feh --bg-fill '/home/one/Desktop/wallup-20474.jpg' 
